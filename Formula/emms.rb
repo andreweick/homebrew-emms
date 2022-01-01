@@ -5,21 +5,21 @@
 class Emms < Formula
   desc "Manage media for eick.com"
   homepage "https://eick.com"
-  version "0.0.010"
+  version "0.0.015"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/andreweick/emms/releases/download/v0.0.010/emms_0.0.010_Darwin_arm64.tar.gz"
-      sha256 "7d91ec77ba391187e1d1bebd0af8a2c0557d93f730bcde2713db0fd1f7b86f73"
+      url "https://github.com/andreweick/emms/releases/download/v0.0.015/emms_0.0.015_Darwin_arm64.tar.gz"
+      sha256 "2b3a14aeeb688be361a2025bc0f2ff1aafd7a18f5b65a91d7277eee03f946aec"
 
       def install
         bin.install "emms"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/andreweick/emms/releases/download/v0.0.010/emms_0.0.010_Darwin_x86_64.tar.gz"
-      sha256 "d68eff51a4a609cd846e63c45df6865f380e92a8ecee3f91377d972757182a69"
+      url "https://github.com/andreweick/emms/releases/download/v0.0.015/emms_0.0.015_Darwin_x86_64.tar.gz"
+      sha256 "670f5fb5facdf0f1c1d4a926a13e1c8cd73fcd255e71836122738416a9ef56c5"
 
       def install
         bin.install "emms"
@@ -28,17 +28,17 @@ class Emms < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/andreweick/emms/releases/download/v0.0.010/emms_0.0.010_Linux_x86_64.tar.gz"
-      sha256 "5c949be995feb079ccd2f1ff9d4941d8bbd59c60eceedf6b1dbd79ffd62662ba"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/andreweick/emms/releases/download/v0.0.015/emms_0.0.015_Linux_arm64.tar.gz"
+      sha256 "9c518a1725d8d93516c877066979edc0a3cd002fa8c2c0c3598e8d048016bfbc"
 
       def install
         bin.install "emms"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/andreweick/emms/releases/download/v0.0.010/emms_0.0.010_Linux_arm64.tar.gz"
-      sha256 "eece025cfa799366d2216ceb225e2fbb3afb1971b48bc22c94f17a7a462e98c5"
+    if Hardware::CPU.intel?
+      url "https://github.com/andreweick/emms/releases/download/v0.0.015/emms_0.0.015_Linux_x86_64.tar.gz"
+      sha256 "97f65bb2ea29525224f0750f707c1d3e58ffaa985748b2a7cfd27bc77f71cc80"
 
       def install
         bin.install "emms"
